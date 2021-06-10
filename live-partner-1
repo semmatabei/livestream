@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. -->
+<!-- # SPDX-License-Identifier: MIT-0 -->
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Live Partner 1</title>
+  <style>
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, 'Helvetica Neue', sans-serif;
+      background: #f2f2f8;
+      display: grid;
+      place-items: center;
+    }
+
+    video {
+      width: 680px;
+      position: relative;
+      box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3);
+      background: black;
+    }
+  </style>
+
+  <script src="https://player.live-video.net/1.1.2/amazon-ivs-player.min.js"></script>
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <video id="video-player" playsinline></video>
+  <script>
+    const playbackUrl = 'https://1ba0f065ed59.us-east-1.playback.live-video.net/api/video/v1/us-east-1.603807486511.channel.2VxuBSTKi6Y0.m3u8';
+
+    if (IVSPlayer.isPlayerSupported) {
+      const player = IVSPlayer.create();
+      player.attachHTMLVideoElement(document.getElementById('video-player'));
+      player.load(playbackUrl);
+      player.play();
+    }
+  </script>
+</body>
+
+</html>
