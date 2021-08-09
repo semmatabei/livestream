@@ -49,31 +49,6 @@
       player.attachHTMLVideoElement(document.getElementById('video-player'));
       player.load(playbackUrl);
       player.play();
-      
-      const events = player.getIVSEvents();
-      const { PlayerEventType, ErrorType, PlayerState } = IVSPlayer;
-      for (let state of Object.values(PlayerState)) {
-          player.addEventListener(state, () => {
-              console.log(state);
-          });
-      }
-      
-      player.addEventListener(PlayerEventType.INITIALIZED, () => {
-        console.log('INITIALIZED');
-      });
-
-      player.addEventListener(PlayerEventType.ERROR, (error) => {
-          const statusTooManyRequests = 429;
-          if (error.type === ErrorType.NOT_AVAILABLE && error.code === statusTooManyRequests) {
-              console.error('Concurrent-viewer limit reached', error);
-          } else {
-              console.error('ERROR', error);
-          }
-      });
-
-      player.addEventListener(PlayerEventType.QUALITY_CHANGED, (quality) => {
-          console.log('QUALITY_CHANGED', quality);
-      });
     }
   </script>
 </body>
