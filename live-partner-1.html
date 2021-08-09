@@ -51,7 +51,7 @@
       player.play();
       
       const events = player.getIVSEvents();
-      const { PlayerEventType, PlayerState } = IVSPlayer;
+      const { PlayerEventType, ErrorType, PlayerState } = IVSPlayer;
       for (let state of Object.values(PlayerState)) {
           player.addEventListener(state, () => {
               console.log(state);
