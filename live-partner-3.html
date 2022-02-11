@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. -->
+<!-- # SPDX-License-Identifier: MIT-0 -->
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Live Partner 3</title>
+  <style>
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, 'Helvetica Neue', sans-serif;
+      background: #f2f2f8;
+      display: grid;
+      place-items: center;
+    }
+
+    video {
+      width: 480px;
+      height: 720px;
+      position: relative;
+      box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3);
+      background: black;
+    }
+  </style>
+
+  <script src="https://player.live-video.net/1.1.2/amazon-ivs-player.min.js"></script>
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <h1>Live Partner 3</h1>
+  <ul>
+    <li>Server: rtmps://27b94c2494c2.global-contribute.live-video.net:443/app/</li>
+    <li>Stream Key: sk_us-east-1_upnF9ijYdvgE_eoe5Msa2OEok529fb47VpT7HDIWskY</li>
+  </ul>
+  <video id="video-player" playsinline></video>
+  <script>
+    const playbackUrl = 'https://27b94c2494c2.us-east-1.playback.live-video.net/api/video/v1/us-east-1.250226768838.channel.XrbgxVOLOFj4.m3u8';
+
+    if (IVSPlayer.isPlayerSupported) {
+      const player = IVSPlayer.create();
+      player.attachHTMLVideoElement(document.getElementById('video-player'));
+      player.load(playbackUrl);
+      player.play();
+    }
+  </script>
+</body>
+
+</html>
